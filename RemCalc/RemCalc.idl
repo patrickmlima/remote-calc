@@ -2,5 +2,5 @@ module RemCalcApp {
 	interface RemCalc {
 	double calculate();
 	oneway void shutdown();
-	}
-}
+	};
+};
