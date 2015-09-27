@@ -1,6 +1,6 @@
 module RemCalcApp {
 	interface RemCalc {
-	double calculate();
+	double calculate(in string expr);
 	oneway void shutdown();
 	};
 };
