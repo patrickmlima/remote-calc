@@ -16,7 +16,7 @@ class RemCalcImpl extends RemCalcPOA {
 
 	// implement calculate() method
 	public String calculate(String expr) {
-		String result = ProccessExpression.getInstance().eval(expr);
+		String result = ProcessExpression.getInstance().eval(expr);
 		return result;
 	}
 
