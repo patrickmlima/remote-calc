@@ -113,7 +113,6 @@ public class ProccessExpression {
     public double eval(final String str) {
         instance.str = str;
         double result = instance.parse();
-        instance.str = null;
         return result;
     }
 }
