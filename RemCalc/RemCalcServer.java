@@ -59,6 +59,8 @@ public class RemCalcServer {
 
 			// wait for invocations from clients
 			orb.run();
+
+			System.out.println("AfterRun");
 		}
 		catch(Exception e) {
 			System.err.println("ERROR: " + e);
