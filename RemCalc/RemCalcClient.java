@@ -33,7 +33,6 @@ public class RemCalcClient {
 			}
 			System.out.println("\n\nThank you for using...");
 			sc.nextLine();
-			remCalcImpl.shutdown();
 		} catch (Exception e) {
 			System.out.println("ERROR: " + e);
 			e.printStackTrace(System.out);
