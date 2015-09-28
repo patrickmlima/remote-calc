@@ -24,12 +24,13 @@ public class RemCalcClient {
 
 			System.out.println("Hello!!");
 			System.out.println("This is the remote calculator service.");
-			System.out.println("Please, insert a mathematical expression which you want to solve:");
+			System.out.println("Please, insert a mathematical expression which you want to solve or q to exit: ");
 
 			Scanner sc = new Scanner(System.in);
-			String expr 
-			while((expr = sc.nextLine()) != "q") {
-				System.out.println("Resultado: " + remCalcImpl.calculate(expr));
+			String expr;
+			while(!((expr = sc.nextLine()).equals("q"))) {
+				System.out.println("Result: " + remCalcImpl.calculate(expr));
+				System.out.println("\nInsert a mathematical expression which you want to solve or q to exit: ");
 			}
 			
 			System.out.println("\n\nThank you for using...");

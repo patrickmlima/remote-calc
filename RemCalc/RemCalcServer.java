@@ -15,9 +15,8 @@ class RemCalcImpl extends RemCalcPOA {
 	}
 
 	// implement calculate() method
-	public double calculate(String expr) {
-		System.out.println("received expression>:" + expr);
-		double result = ProccessExpression.getInstance().eval(expr);
+	public String calculate(String expr) {
+		String result = ProccessExpression.getInstance().eval(expr);
 		return result;
 	}
 
@@ -62,8 +61,6 @@ public class RemCalcServer {
 
 			// wait for invocations from clients
 			orb.run();
-
-			System.out.println("AfterRun");
 		}
 		catch(Exception e) {
 			System.err.println("ERROR: " + e);

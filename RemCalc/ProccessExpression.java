@@ -110,12 +110,21 @@ public class ProccessExpression {
     /**
     * method responsable to proccess the mathematical expression
     */
-    public double eval(final String str) {
+    public String eval(final String str) {
         instance.str = str;
-        System.out.println("str instance>:"+instance.str);
-        double result = instance.parse();
+        String result;
+        try {
+            double r = instance.parse();
+            result = Double.toString(r);
+        } catch (Exception e) {
+            result = "Error: There's an error in the expression\nTry again inserting a correct expression" +
+            "\nUse + to addition, - to subtraction, * to multiplication, / to division and ^ to exponentiation." +
+            "\nYou can also use brackets ()\n";
+        }
+
         instance.str = null;
         instance.pos = -1;
+
         return result;
     }
 }
