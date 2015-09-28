@@ -9,7 +9,8 @@ public class RemCalcClient {
 
 	public static void main(String args[]) {
 		try {
-			ORB orb = ORB.init(args,null);
+			String orbConf[] = {"-ORBInitialPort","1050","-ORBInitialHost","localhost"};
+			ORB orb = ORB.init(orbConf,null);
 
 			// get the root naming context
 			org.omg.CORBA.Object objRef = orb.resolve_initial_references("NameService");
@@ -26,8 +27,10 @@ public class RemCalcClient {
 			System.out.println("Please, insert a mathematical expression which you want to solve:");
 
 			Scanner sc = new Scanner(System.in);
-			String expr = sc.nextLine();
-			System.out.println("Resultado: " + remCalcImpl.calculate(expr));
+			String expr 
+			while((expr = sc.nextLine()) != "q") {
+				System.out.println("Resultado: " + remCalcImpl.calculate(expr));
+			}
 			
 			System.out.println("\n\nThank you for using...");
 			sc.nextLine();

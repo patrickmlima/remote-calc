@@ -1,9 +1,10 @@
 import RemCalcApp.*;
+
 import org.omg.CosNaming.*;
 import org.omg.CosNaming.NamingContextPackage.*;
 import org.omg.CORBA.*;
 import org.omg.PortableServer.*;
-import org.omg.PortableServer.POA;
+
 import java.util.Properties;
 
 class RemCalcImpl extends RemCalcPOA {
@@ -15,6 +16,7 @@ class RemCalcImpl extends RemCalcPOA {
 
 	// implement calculate() method
 	public double calculate(String expr) {
+		System.out.println("received expression>:" + expr);
 		double result = ProccessExpression.getInstance().eval(expr);
 		return result;
 	}
@@ -29,7 +31,8 @@ public class RemCalcServer {
 	public static void main(String args[]) {
 		try {
 			// create and initialize the ORB instance
-			ORB orb = ORB.init(args, null);
+			String orbConf[] = {"-ORBInitialPort","1050","-ORBInitialHost","localhost"};
+			ORB orb = ORB.init(orbConf, null);
 
 			// get reference to rootpoa and activate thePOAManager
 			POA rootpoa = POAHelper.narrow(orb.resolve_initial_references("RootPOA"));

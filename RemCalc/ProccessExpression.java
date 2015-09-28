@@ -112,8 +112,10 @@ public class ProccessExpression {
     */
     public double eval(final String str) {
         instance.str = str;
+        System.out.println("str instance>:"+instance.str);
         double result = instance.parse();
-        instance.str = "";
+        instance.str = null;
+        instance.pos = -1;
         return result;
     }
 }
